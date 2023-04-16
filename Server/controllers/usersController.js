@@ -23,6 +23,7 @@ async function signup(req, res){
 }
 
 async function login(req, res){
+    try{
     //Get the email and password off the req body
     const {email, password} = req.body;
 
@@ -45,24 +46,35 @@ async function login(req, res){
         sameSite: 'lax',
         secure: process.env.Node_ENV === 'production',
     });
-
-    
-    
+   
     //Send it
     res.sendStatus(200);
+} catch(err) {
+    console.log(err);
+    res.sendStatus(400);
+}
 
 }
 
 function checkAuth(req, res){
-    console.log(req.user);
-    res.sendStatus(200);
+    try{
+        res.sendStatus(200);
+    } catch(err) {
+        return res.sendStatus(400);
+    }
 }
 
 function logout(req, res){
-
+    try{
+        res.clearCookie("Authorization");
+        res.sendStatus(200);
+    } catch(err) {
+        console.log(err);
+        res.sendStatus(400);
+    }
 }
 
-module.exports = {
+module.exports = { 
     signup,
     login,
     logout,
