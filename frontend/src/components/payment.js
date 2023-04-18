@@ -4,6 +4,12 @@ export default function Payment() {
 
     const [image, setImages] = useState();
 
+    const [payment, setPayment] = useState({
+        userId:"",
+        classId:"",
+        slip:""
+    });
+
     function onImageChange(e) {
         setImages(e.target.files[0]);
         console.log(image);
@@ -24,6 +30,12 @@ export default function Payment() {
                     />
                 </div>
             )}
+
+            <a href = "#">
+                <button>
+                    Upload slip
+                </button>
+            </a>
 
         </div>
     );
