@@ -35,11 +35,12 @@ app.post('/login', usersController.login);
 app.get('/logout', usersController.logout);
 app.get('/checkAuth', requireAuth, usersController.checkAuth);
 
-app.post("/notes", notesController.createNote);
-app.get("/notes", notesController.fetchNotes);
-app.get("/notes/:id", notesController.fetchNote);
-app.put('/notes/:id', notesController.updateNote);
-app.delete("/notes/:id", notesController.deleteNote);
+app.post("/notes", requireAuth, notesController.createNote);
+app.get("/notes", requireAuth, notesController.fetchNotes);
+app.get("/notes/:id", requireAuth, notesController.fetchNote);
+app.put('/notes/:id', requireAuth, notesController.updateNote);
+app.delete("/notes/:id", requireAuth, notesController.deleteNote);
+
 
 //Start our server
 app.listen(process.env.PORT);
