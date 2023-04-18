@@ -42,7 +42,7 @@ const styles = {
         display: "flex",
         flexDirection: "column",
     },
-    image: { maxWidth: "100%", maxHeight: "100%" },
+    image: { maxWidth: "50%", maxHeight: "50%" },
     delete: {
         cursor: "pointer",
         padding: 15,
