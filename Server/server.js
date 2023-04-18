@@ -12,7 +12,7 @@ const connectToDb = require('./config/connectToDb');
 const notesController = require('./controllers/notesController');
 const usersController = require('./controllers/usersController');
 const requireAuth = require('./middleware/requireAuth');
-const createClass = require("./controllers/classesController");
+const classesController = require("./controllers/classesController");
 
 
 //Create an express app
@@ -42,7 +42,8 @@ app.get("/notes/:id", requireAuth, notesController.fetchNote);
 app.put('/notes/:id', requireAuth, notesController.updateNote);
 app.delete("/notes/:id", requireAuth, notesController.deleteNote);
 
-app.post("/newClass", createClass);
+app.post("/newClass", classesController.createClass);
+app.get("/getClasses", classesController.fetchClasses);
 
 
 //Start our server

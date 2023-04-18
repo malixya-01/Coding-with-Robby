@@ -15,10 +15,23 @@ const createClass = async (req, res) => {
         console.log(err);
         res.sendStatus(400);
     }
+};
 
-
+const fetchClasses = async (req, res) => {
+    try {
+        //Find the notes
+        const classes = await Class.find()
+        //Respond with them
+        res.json({ classes });
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(400);
+    }
 };
 
 
 
-module.exports = createClass
+module.exports = {
+    createClass,
+    fetchClasses
+}
