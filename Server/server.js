@@ -46,6 +46,7 @@ app.post("/newClass", classesController.createClass);
 app.get("/getClasses", classesController.fetchClasses);
 
 app.post("/uploadSlip", requireAuth, slipPaymentsController.createSlipPayment);
+app.get("/allSlips", requireAuth, slipPaymentsController.fetchAll);
 
 
 //Start our server

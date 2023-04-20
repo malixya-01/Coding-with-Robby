@@ -18,9 +18,23 @@ const createSlipPayment = async (req, res) => {
         console.log(err);
         res.sendStatus(400);
     }
-}
+};
+
+const fetchAll = async (req, res) => {
+    try {
+        //find all payments
+        const payments = await SlipPayment.find();
+        //respond with all payments
+        res.json({ payments })
+
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400)
+    }
+};
 
 
 module.exports = {
     createSlipPayment,
+    fetchAll,
 };
