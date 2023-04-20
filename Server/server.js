@@ -13,7 +13,7 @@ const notesController = require('./controllers/notesController');
 const usersController = require('./controllers/usersController');
 const requireAuth = require('./middleware/requireAuth');
 const classesController = require("./controllers/classesController");
-
+const slipPaymentsController = require("./controllers/slipPaymentsController");
 
 //Create an express app
 const app = express();
@@ -44,6 +44,8 @@ app.delete("/notes/:id", requireAuth, notesController.deleteNote);
 
 app.post("/newClass", classesController.createClass);
 app.get("/getClasses", classesController.fetchClasses);
+
+app.post("/uploadSlip", requireAuth, slipPaymentsController.createSlipPayment);
 
 
 //Start our server
