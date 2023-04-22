@@ -1,5 +1,5 @@
 //load env variables
-if(process.env.NODE_ENV != "production"){
+if (process.env.NODE_ENV != "production") {
     require("dotenv").config();
 }
 
@@ -8,12 +8,15 @@ if(process.env.NODE_ENV != "production"){
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser')
 const connectToDb = require('./config/connectToDb');
 const notesController = require('./controllers/notesController');
 const usersController = require('./controllers/usersController');
 const requireAuth = require('./middleware/requireAuth');
 const classesController = require("./controllers/classesController");
 const slipPaymentsController = require("./controllers/slipPaymentsController");
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' })
 
 //Create an express app
 const app = express();
@@ -25,6 +28,9 @@ app.use(cors({
     origin: true,
     credentials: true
 }));
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 
 
 //Connect to database
@@ -45,7 +51,7 @@ app.delete("/notes/:id", requireAuth, notesController.deleteNote);
 app.post("/newClass", classesController.createClass);
 app.get("/getClasses", classesController.fetchClasses);
 
-app.post("/uploadSlip", requireAuth, slipPaymentsController.createSlipPayment);
+app.post("/uploadSlip", slipPaymentsController.createSlipPayment);
 app.get("/allSlips", requireAuth, slipPaymentsController.fetchAll);
 
 

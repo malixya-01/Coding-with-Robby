@@ -1,15 +1,18 @@
 const mongoose = require('mongoose');
 
 const slipPaymentSchema = new mongoose.Schema({
-    user: {
+    /* user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
-    },
+    }, */
     classId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Class"
     },
-    img: String
+    slip: {
+        type: String,
+        required: true
+    }
 });
 
 const SlipPayment = mongoose.model('SlipPayment', slipPaymentSchema)
