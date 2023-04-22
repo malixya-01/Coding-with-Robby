@@ -6,6 +6,8 @@ import CreateNote from "./CreateNote";
 import NavBar from "./NavBar";
 import FetchNotes from "./FetchNotes";
 import UpdateNote from "./UpdateNote";
+import Payment from "./payment";
+import Home from "./Home";
 
 function App() {
   
@@ -16,9 +18,11 @@ function App() {
         <NavBar/>
         <div className='container'>
           <Routes>
+            <Route path='/' element={<Home/>}/>
             <Route path='/add' element={<CreateNote/>}/>
-            <Route path='/' element={<FetchNotes/>}/>
+            <Route path='/get' element={<FetchNotes/>}/>
             <Route path='/update/:id' element={<UpdateNote/>}/>
+            <Route path='/enroll/:id' element={<Payment/>}/>
 
           </Routes>
         

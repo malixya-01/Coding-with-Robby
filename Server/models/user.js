@@ -12,7 +12,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    notes: [{type : mongoose.Schema.Types.ObjectId, ref: "Note"}]
+    notes: [{type : mongoose.Schema.Types.ObjectId, ref: "Note"}],
+    slipPayments: [{type : mongoose.Schema.Types.ObjectId, ref: "SlipPayment"}]
   });
 
   const User = mongoose.model('User', userSchema);
