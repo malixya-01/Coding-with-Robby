@@ -15,8 +15,8 @@ const usersController = require('./controllers/usersController');
 const requireAuth = require('./middleware/requireAuth');
 const classesController = require("./controllers/classesController");
 const slipPaymentsController = require("./controllers/slipPaymentsController");
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' })
+const enrollmentsController= require("./controllers/enrollmentsController");
+
 
 //Create an express app
 const app = express();
@@ -53,6 +53,8 @@ app.get("/getClasses", classesController.fetchClasses);
 
 app.post("/uploadSlip", slipPaymentsController.createSlipPayment);
 app.get("/allSlips", requireAuth, slipPaymentsController.fetchAll);
+
+app.post("/enrollStudent", requireAuth, enrollmentsController.addEnrollment);
 
 
 //Start our server
