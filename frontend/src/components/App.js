@@ -8,6 +8,7 @@ import FetchNotes from "./FetchNotes";
 import UpdateNote from "./UpdateNote";
 import Payment from "./payment";
 import Home from "./Home";
+import AllSlips from "./allSlips"
 
 function App() {
   
@@ -18,7 +19,7 @@ function App() {
         <NavBar/>
         <div className='container'>
           <Routes>
-            <Route path='/' element={<Home/>}/>
+            <Route path='/' element={<AllSlips/>}/>
             <Route path='/add' element={<CreateNote/>}/>
             <Route path='/get' element={<FetchNotes/>}/>
             <Route path='/update/:id' element={<UpdateNote/>}/>
