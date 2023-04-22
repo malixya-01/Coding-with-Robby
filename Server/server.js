@@ -55,6 +55,8 @@ app.post("/uploadSlip", slipPaymentsController.createSlipPayment);
 app.get("/allSlips", requireAuth, slipPaymentsController.fetchAll);
 
 app.post("/enrollStudent", requireAuth, enrollmentsController.addEnrollment);
+app.get("/getStudents/:id", requireAuth, enrollmentsController.fetchStudents);
+app.delete("/deleteStudents/:id", requireAuth, enrollmentsController.deleteEnrollment);
 
 
 //Start our server
