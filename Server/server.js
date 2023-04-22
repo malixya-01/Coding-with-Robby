@@ -58,7 +58,7 @@ app.put('/updateSlip/:id', requireAuth, slipPaymentsController.updatePayment);
 app.delete("/deleteSlip/:id", requireAuth, slipPaymentsController.deleteSlip);
 
 app.post("/enrollStudent", requireAuth, enrollmentsController.addEnrollment);
-app.get("/getStudents/:id", requireAuth, enrollmentsController.fetchStudents);
+app.get("/getStudents/:id", enrollmentsController.fetchStudents);
 app.delete("/deleteStudents/:id", requireAuth, enrollmentsController.deleteEnrollment);
 
 
