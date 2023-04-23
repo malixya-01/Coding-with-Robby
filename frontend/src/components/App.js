@@ -23,7 +23,7 @@ function App() {
         <NavBar/>
         <div className='container'>
           <Routes>
-            <Route path='/' element={<ClassStudents/>}/>
+            <Route path='/' element={<Home/>}/>
             <Route path='/add' element={<CreateNote/>}/>
             <Route path='/get' element={<FetchNotes/>}/>
             <Route path='/update/:id' element={<UpdateNote/>}/>

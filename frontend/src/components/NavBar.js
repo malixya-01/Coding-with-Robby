@@ -31,6 +31,10 @@ export default function NavBar(){
                 <li className="nav-item">
                     <a href="/classAllStd" className="nav-link">Students</a>
                 </li>
+
+                <li className="nav-item">
+                    <a href="/myPayments" className="nav-link">My Payments</a>
+                </li>
                 
             </ul>
             </div>

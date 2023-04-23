@@ -59,8 +59,21 @@ export default function Payment() {
     }
 
     const addPayment = async () => {
-        //api calling
-        const res = await axios.post("http://localhost:3000/uploadSlip", payment);
+        
+        try {
+            const res = await axios.post("http://localhost:3000/uploadSlip", payment);
+            const successMessage = "Success! Your payment was uploaded successfully.";
+            
+            // display success message as an alert
+            window.alert(successMessage);
+            
+            // redirect to homepage 
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 3000); // 3 second delay before redirecting
+          } catch (error) {
+            console.error(error);
+          }
     };
 
 
