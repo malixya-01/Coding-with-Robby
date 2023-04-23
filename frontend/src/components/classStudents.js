@@ -35,13 +35,13 @@ export default function AllStudents() {
 
     return (
         <div className="container-md">
-            <h2>All slips</h2>
+            <h2>All Students - 2024AL</h2>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Slip</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col" style={{ fontFamily: "poppins", color: "white", fontSize: "25px" }}>StdId</th>
+                        <th scope="col" style={{ fontFamily: "poppins", color: "white", fontSize: "25px" }}>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,10 +50,10 @@ export default function AllStudents() {
                         students.map((student) => {
                             return (
                                 <tr>
-                                    <td>{student._id}</td>
+                                    <td style={{ color: "white", textDecoration: 'none' }}>{student._id}</td>
                                     <td>
-                                        <a className="btn btn-danger" href="#">
-                                            <i className="fas fa-edit"></i>&nbsp;Delete Student
+                                        <a href="#" style={{ color: "white", textDecoration: 'none' }}>
+                                            Delete
                                         </a>
                                     </td>
                                 </tr>
