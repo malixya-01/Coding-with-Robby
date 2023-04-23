@@ -43,12 +43,12 @@ export default function AllSlips() {
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="#" style={{color: "white"}}>
+                                        <a href="#" style={{color: "white",  textDecoration: 'none'}}>
                                             Add Student
                                         </a>
                                     </td>
                                     <td>
-                                    <a href="#" style={{color: "white"}}>
+                                    <a href="#" style={{color: "white",  textDecoration: 'none'}}>
                                             Invalid
                                         </a>
                                     </td>
