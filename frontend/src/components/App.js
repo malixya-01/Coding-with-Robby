@@ -13,6 +13,7 @@ import ClassStudents from "./classStudents"
 import AddAdmin from "./AddAdm";
 import AllAdm from "./AllAdm"
 import UpdateAdm from "./UpdateAdm"
+import Header from "./NewNavbar"
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
-        <NavBar/>
+        <Header/>
         <div className='container'>
           <Routes>
             <Route path='/' element={<ClassStudents/>}/>
