@@ -58,11 +58,11 @@ router.route("/delete/:id").delete(async(req,res)=>{
     })
 })
 
-router.route("/get/:id").get(async(res,req)=>{
+router.route("/get/:id").get(async(req,res)=>{
     let adminId = req.params.id;
-    const admin = await Admin.findById(adminId).then((Admin)=>{
+    const admin = await Admin.findById(adminId).then((admin)=>{
         res.status(200).send({status: "Admin Fetched", adminDate: admin})
-    }).catch(()=>{
+    }).catch((err)=>{
         console.log(err.message);
         res.status(500).send({status: "User cannot be fetched", error: err.message})
     })
