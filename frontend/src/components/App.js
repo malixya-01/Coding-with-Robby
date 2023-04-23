@@ -28,6 +28,7 @@ function App() {
             <Route path='/get' element={<FetchNotes/>}/>
             <Route path='/update/:id' element={<UpdateNote/>}/>
             <Route path='/enroll/:id' element={<Payment/>}/>
+            <Route path='/payments' element={<AllSlips/>}/>
 
             <Route path='/addAdm' element={<AddAdmin/>}/>
             <Route path='/allAdm' element={<AllAdm/>}/>

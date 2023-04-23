@@ -23,6 +23,10 @@ export default function NavBar(){
                 <li className="nav-item">
                     <a href="/get" className="nav-link">All notes</a>
                 </li>
+
+                <li className="nav-item">
+                    <a href="/payments" className="nav-link">Payments</a>
+                </li>
                 
             </ul>
             </div>

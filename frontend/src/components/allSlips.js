@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import './styles/UpdateAdm.css'
 
 export default function AllSlips() {
 
@@ -25,9 +26,9 @@ export default function AllSlips() {
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Add Student</th>
-                        <th scope="col">Invalid</th>
+                        <th scope="col" style={{ fontFamily: "poppins", color: "white", fontSize: "25px" }} >id</th>
+                        <th scope="col" style={{ fontFamily: "poppins", color: "white", fontSize: "25px" }}>Add Student</th>
+                        <th scope="col" style={{ fontFamily: "poppins", color: "white", fontSize: "25px" }}>Invalid</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,13 +43,13 @@ export default function AllSlips() {
                                         </a>
                                     </td>
                                     <td>
-                                        <a className="btn btn-warning" href="#">
-                                            <i className="fas fa-edit"></i>&nbsp;Add Student
+                                        <a href="#" style={{color: "white"}}>
+                                            Add Student
                                         </a>
                                     </td>
                                     <td>
-                                        <a className="btn btn-danger" href="#">
-                                            <i className="fas fa-edit"></i>Not Valid
+                                    <a href="#" style={{color: "white"}}>
+                                            Invalid
                                         </a>
                                     </td>
                                 </tr>
