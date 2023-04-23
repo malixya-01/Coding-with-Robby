@@ -10,6 +10,9 @@ import Payment from "./payment";
 import Home from "./Home";
 import AllSlips from "./allSlips"
 import ClassStudents from "./classStudents"
+import AddAdmin from "./AddAdm";
+import AllAdm from "./AllAdm"
+import UpdateAdm from "./UpdateAdm"
 
 function App() {
   
@@ -26,6 +29,9 @@ function App() {
             <Route path='/update/:id' element={<UpdateNote/>}/>
             <Route path='/enroll/:id' element={<Payment/>}/>
 
+            <Route path='/addAdm' element={<AddAdmin/>}/>
+            <Route path='/allAdm' element={<AllAdm/>}/>
+            <Route path='/updateAdm/:id' element={<UpdateAdm/>}/>
           </Routes>
         
         </div>

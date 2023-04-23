@@ -61,6 +61,9 @@ app.post("/enrollStudent", requireAuth, enrollmentsController.addEnrollment);
 app.get("/getStudents/:id", enrollmentsController.fetchStudents);
 app.delete("/deleteStudents/:id", requireAuth, enrollmentsController.deleteEnrollment);
 
+//Nadula
+const adminRouter = require("./controllers/admins.js");
+app.use("/admin", adminRouter);
 
 //Start our server
 app.listen(process.env.PORT);
