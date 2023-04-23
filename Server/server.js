@@ -52,13 +52,13 @@ app.post("/newClass", classesController.createClass);
 app.get("/getClasses", classesController.fetchClasses);
 
 app.post("/uploadSlip", requireAuth, slipPaymentsController.createSlipPayment);
-app.get("/allSlips", requireAuth, slipPaymentsController.fetchAll);
+app.get("/allSlips", slipPaymentsController.fetchAll);
 app.get("/mySlips/:id", requireAuth, slipPaymentsController.fetchUserSlips);
 app.put('/updateSlip/:id', requireAuth, slipPaymentsController.updatePayment);
 app.delete("/deleteSlip/:id", requireAuth, slipPaymentsController.deleteSlip);
 
 app.post("/enrollStudent", requireAuth, enrollmentsController.addEnrollment);
-app.get("/getStudents/:id", requireAuth, enrollmentsController.fetchStudents);
+app.get("/getStudents/:id", enrollmentsController.fetchStudents);
 app.delete("/deleteStudents/:id", requireAuth, enrollmentsController.deleteEnrollment);
 
 
