@@ -4,12 +4,12 @@ const router = require("express").Router();
 
 const addItem = async (req, res) => {
   try {
-    const { title, dis, price, image } = req.body;
+    // const { title, dis, price, image } = req.body;
     const item = await Post.create({
-      title:string,
-      dis:string,
-      price:number,
-      image:string,
+      title: req.body.title,
+    dis: req.body.dis,
+    price: req.body.price,
+    image: req.body.image,
     });
     //Respond with the new note
     res.json({ item });

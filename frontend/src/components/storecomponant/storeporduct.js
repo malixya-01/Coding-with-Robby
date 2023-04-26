@@ -157,15 +157,6 @@ function CreatePost() {
           Save Product
         </Button>
       </Form>
-
-      <Button
-        style={{ width: "100%" }}
-        variant="outline-dark"
-        onClick={() => navigate(-1)}
-      >
-        BACK
-      </Button>
-
       <ToastContainer />
     </div>
   );
