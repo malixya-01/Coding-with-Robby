@@ -8,8 +8,9 @@ import FetchNotes from "./FetchNotes";
 import UpdateNote from "./UpdateNote";
 import Payment from "./payment";
 import Home from "./Home";
-import AddProduct from "./storecomponant/addProduct";
 import CreatePost from "./storecomponant/storeporduct";
+import Product from "./storecomponant/adminstore";
+import Store from "./storecomponant/adminp";
 
 function App() {
   
@@ -25,8 +26,9 @@ function App() {
             <Route path='/get' element={<FetchNotes/>}/>
             <Route path='/update/:id' element={<UpdateNote/>}/>
             <Route path='/enroll/:id' element={<Payment/>}/>
-            <Route path='/addstore' element={<AddProduct/>}/>
             <Route path='/create' element={<CreatePost/>}/>
+            <Route path='/create/admin' element={<Product/>}/> 
+            <Route path='/create/getpro' element={<Store/>}/>
           </Routes>
         
         </div>

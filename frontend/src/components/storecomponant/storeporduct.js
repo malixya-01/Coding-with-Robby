@@ -78,7 +78,8 @@ function CreatePost() {
       setErrorMessage("Form is not complete.");
     } else {
       // send data to the database
-      const res = axios.post("http://localhost:3000/additem", {
+      const res = axios
+        .post("http://localhost:3000/additem", {
           title: title,
           dis: description,
           price: price,
@@ -87,7 +88,8 @@ function CreatePost() {
         .then((res) => {
           notify("Success");
           console.log(res);
-        //   navigate("/create/product");
+          navigate("/create/admin");
+          //   navigate("/create/product");
         })
         .catch((err) => setErrorMessage(err.response.data.message));
     }
@@ -105,11 +107,16 @@ function CreatePost() {
   return (
     <div
       class="d-flex justify-content-center align-items-center flex-column mt-5 mb-5  p-5 shadow-lg bg-white rounded  border border-dark  border-3 "
-      style={{ width: "30%", margin: "auto auto", textAlign: "center",backgroundImage:"linear-gradient()" }}
+      style={{
+        width: "30%",
+        margin: "auto auto",
+        textAlign: "center",
+        backgroundImage: "linear-gradient()",
+      }}
     >
       {/* mt-5 mb-5  p-5 shadow-lg bg-white rounded  border border-dark  border-3  border-3 border-dark */}
       <h1>Add Products</h1>
-      <Form onSubmit={onclick} >
+      <Form onSubmit={onclick}>
         <Form.Group>
           <Form.Control
             name="title"
@@ -141,12 +148,12 @@ function CreatePost() {
             }}
           />
 
-          <input
+          {/* <input
             type="file"
             className="form-control mb-3"
             onChange={handleImageChange}
           />
-          {uploadProgress > 0 && <div>Uploading... {uploadProgress}%</div>}
+          {uploadProgress > 0 && <div>Uploading... {uploadProgress}%</div>} */}
         </Form.Group>
         <Button
           style={{ width: "100%", marginBottom: "1rem" }}
