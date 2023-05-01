@@ -1,6 +1,6 @@
 //load env variables
 if (process.env.NODE_ENV != "production") {
-    require("dotenv").config();
+  require("dotenv").config();
 }
 
 
@@ -16,6 +16,7 @@ const requireAuth = require('./middleware/requireAuth');
 const classesController = require("./controllers/classesController");
 const slipPaymentsController = require("./controllers/slipPaymentsController");
 const enrollmentsController= require("./controllers/enrollmentsController");
+const storeController = require("./controllers/storeController");
 
 
 //Create an express app
@@ -25,8 +26,8 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: true,
-    credentials: true
+  origin: true,
+  credentials: true
 }));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -67,3 +68,12 @@ app.use("/admin", adminRouter);
 
 //Start our server
 app.listen(process.env.PORT);
+
+//viganga
+// const postRouter = require("./controllers/storeController");
+// app.use("/store", postRouter);
+
+app.post("/additem", storeController.addItem);
+app.get("/getitems", storeController.getItems);
+app.put("/updateitem/:id", storeController.updateItem);
+app.delete("/deleteitem/:id", storeController.deleteItem);

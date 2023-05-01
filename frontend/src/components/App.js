@@ -13,6 +13,9 @@ import ClassStudents from "./classStudents"
 import AddAdmin from "./AddAdm";
 import AllAdm from "./AllAdm"
 import UpdateAdm from "./UpdateAdm"
+import CreatePost from "./storecomponant/storeporduct";
+import Product from "./storecomponant/adminstore";
+import Store from "./storecomponant/adminp";
 
 function App() {
   
@@ -32,6 +35,11 @@ function App() {
             <Route path='/addAdm' element={<AddAdmin/>}/>
             <Route path='/allAdm' element={<AllAdm/>}/>
             <Route path='/updateAdm/:id' element={<UpdateAdm/>}/>
+
+            <Route path='/create' element={<CreatePost/>}/>
+            <Route path='/create/admin' element={<Product/>}/> 
+            <Route path='/create/getpro' element={<Store/>}/>
+
           </Routes>
         
         </div>
