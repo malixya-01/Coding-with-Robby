@@ -15,6 +15,11 @@ import UpdateAdm from "./UpdateAdm";
 import CreatePost from "./storecomponant/storeporduct";
 import Product from "./storecomponant/adminstore";
 import Store from "./storecomponant/adminp";
+import AllSlips from "./allSlips"
+import ClassStudents from "./classStudents"
+import AddAdmin from "./AddAdm";
+import AllAdm from "./AllAdm"
+import UpdateAdm from "./UpdateAdm"
 
 function App() {
   return (
@@ -36,6 +41,15 @@ function App() {
             <Route path="/create" element={<CreatePost />} />
             <Route path="/create/admin" element={<Product />} />
             <Route path="/create/getpro" element={<Store />} />
+            <Route path='/' element={<ClassStudents/>}/>
+            <Route path='/add' element={<CreateNote/>}/>
+            <Route path='/get' element={<FetchNotes/>}/>
+            <Route path='/update/:id' element={<UpdateNote/>}/>
+            <Route path='/enroll/:id' element={<Payment/>}/>
+
+            <Route path='/addAdm' element={<AddAdmin/>}/>
+            <Route path='/allAdm' element={<AllAdm/>}/>
+            <Route path='/updateAdm/:id' element={<UpdateAdm/>}/>
           </Routes>
         </div>
       </BrowserRouter>

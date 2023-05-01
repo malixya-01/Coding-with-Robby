@@ -11,7 +11,7 @@ function Store() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/getitems")
+      .get("")
       .then((res) => {
         console.log(res);
         setStore(res.data);
