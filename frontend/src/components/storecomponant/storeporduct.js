@@ -148,12 +148,12 @@ function CreatePost() {
             }}
           />
 
-          {/* <input
+          <input
             type="file"
             className="form-control mb-3"
             onChange={handleImageChange}
           />
-          {uploadProgress > 0 && <div>Uploading... {uploadProgress}%</div>} */}
+          {uploadProgress > 0 && <div>Uploading... {uploadProgress}%</div>}
         </Form.Group>
         <Button
           style={{ width: "100%", marginBottom: "1rem" }}
