@@ -18,6 +18,18 @@ import CreatePost from "./storecomponant/storeporduct";
 import Product from "./storecomponant/adminstore";
 import Store from "./storecomponant/adminp";
 
+//harith items
+import Header1 from './videomanegement/header'
+import AddVideos from './videomanegement/AddVideos';
+import Allvideos from './videomanegement/AllVideos';
+import UpdateVideos from './videomanegement/UpdateVideo'
+import ShowGrade10Videos from './videomanegement/ShowGrade10Videos';
+import ShowGrade11Videos from './videomanegement/ShowGrade11Videos';
+import ShowGrade12Videos from './videomanegement/ShowGrade12Videos';
+import ShowGrade13Videos from './videomanegement/ShowGrade13Videos';
+import VideoSelectByGrade from './videomanegement/videoSelectbyGrade';
+
+
 function App() {
   
   return (
@@ -40,6 +52,17 @@ function App() {
             <Route path='/create' element={<CreatePost/>}/>
             <Route path='/create/admin' element={<Product/>}/> 
             <Route path='/create/getpro' element={<Store/>}/>
+
+           
+               <Route exact path="page" element={<Header1/>}/>
+               <Route exact path="/show"  element={<Allvideos/>}/>
+               <Route exact path="/addVideo"  element={<AddVideos/>}/>
+               <Route exact path="/update1/:id" element={<UpdateVideos/>}/>
+               <Route exact path="/grade10" element={<ShowGrade10Videos/>}/>
+               <Route exact path="/grade11" element={<ShowGrade11Videos/>}/>
+               <Route exact path="/grade12" element={<ShowGrade12Videos/>}/>
+               <Route exact path="/grade13" element={<ShowGrade13Videos/>}/>
+                <Route exact path="/selectGrade" element={<VideoSelectByGrade/>}/>
 
           </Routes>
         

@@ -38,6 +38,9 @@ app.use(bodyParser.json())
 connectToDb();
 
 //Routing
+
+
+
 app.post('/signup', usersController.signup);
 app.post('/login', usersController.login);
 app.get('/logout', usersController.logout);
@@ -61,6 +64,11 @@ app.delete("/deleteSlip/:id", requireAuth, slipPaymentsController.deleteSlip);
 app.post("/enrollStudent", requireAuth, enrollmentsController.addEnrollment);
 app.get("/getStudents/:id", enrollmentsController.fetchStudents);
 app.delete("/deleteStudents/:id", requireAuth, enrollmentsController.deleteEnrollment);
+
+
+//Moda harith
+const studentRouter=require('./controllers/routes');
+app.use('/video',studentRouter);
 
 //Nadula
 const adminRouter = require("./controllers/admins.js");
