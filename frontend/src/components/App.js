@@ -13,13 +13,10 @@ import ClassStudents from "./classStudents"
 import AddAdmin from "./AddAdm";
 import AllAdm from "./AllAdm"
 import UpdateAdm from "./UpdateAdm"
-<<<<<<< HEAD
 import Header from "./NewNavbar"
-=======
 import CreatePost from "./storecomponant/storeporduct";
 import Product from "./storecomponant/adminstore";
 import Store from "./storecomponant/adminp";
->>>>>>> 65b0040b7ee8a61167a2151295492ddf930fe8e7
 
 function App() {
   
