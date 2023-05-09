@@ -13,6 +13,7 @@ import ClassStudents from "./classStudents"
 import AddAdmin from "./AddAdm";
 import AllAdm from "./AllAdm"
 import UpdateAdm from "./UpdateAdm"
+import Header from "./NewNavbar"
 import CreatePost from "./storecomponant/storeporduct";
 import Product from "./storecomponant/adminstore";
 import Store from "./storecomponant/adminp";
@@ -24,7 +25,7 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
-        <NavBar/>
+        <Header/>
         <div className='container'>
           <Routes>
             <Route path='/' element={<ClassStudents/>}/>
