@@ -77,3 +77,5 @@ app.post("/additem", storeController.addItem);
 app.get("/getitems", storeController.getItems);
 app.put("/updateitem/:id", storeController.updateItem);
 app.delete("/deleteitem/:id", storeController.deleteItem);
+app.get("/getStoreItem", storeController.getStoreItem);
+

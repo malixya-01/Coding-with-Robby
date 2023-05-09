@@ -11,10 +11,10 @@ function Store() {
 
   useEffect(() => {
     axios
-      .get("")
+      .get("http://localhost:3000/getStoreItem")
       .then((res) => {
         console.log(res);
-        setStore(res.data);
+        setStore(res.data.items);
       })
       .catch((err) => console.log(err));
   }, []);

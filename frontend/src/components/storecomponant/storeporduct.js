@@ -106,7 +106,7 @@ function CreatePost() {
 
   return (
     <div
-      class="d-flex justify-content-center align-items-center flex-column mt-5 mb-5  p-5 shadow-lg bg-white rounded  border border-dark  border-3 "
+      className="d-flex justify-content-center align-items-center flex-column mt-5 mb-5  p-5 shadow-lg bg-white rounded  border border-dark  border-3 "
       style={{
         width: "30%",
         margin: "auto auto",
