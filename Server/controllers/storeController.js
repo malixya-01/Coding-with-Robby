@@ -68,6 +68,19 @@ const deleteItem = async (req, res) => {
 
 };
  
+const getStoreItem = async (req, res) => {
+  try {
+    //Find the items
+    const items = await Post.find();
+    //Respond with them
+    res.json({ items });
+
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(400);
+  }
+};
+
 
 
 module.exports = {
@@ -75,6 +88,7 @@ module.exports = {
   getItems,
   updateItem,
   deleteItem,
+  getStoreItem,
 };
 // router.route("/create").post((req, res) => {
 //   Post.create({

@@ -16,6 +16,7 @@ import UpdateAdm from "./UpdateAdm"
 import CreatePost from "./storecomponant/storeporduct";
 import Product from "./storecomponant/adminstore";
 import Store from "./storecomponant/adminp";
+import Adminmain from "./MainAdmin";
 
 function App() {
   
@@ -36,9 +37,11 @@ function App() {
             <Route path='/allAdm' element={<AllAdm/>}/>
             <Route path='/updateAdm/:id' element={<UpdateAdm/>}/>
 
-            <Route path='/create' element={<CreatePost/>}/>
-            <Route path='/create/admin' element={<Product/>}/> 
-            <Route path='/create/getpro' element={<Store/>}/>
+            <Route path='/mainadmin/create' element={<CreatePost/>}/>
+            <Route path='/admin' element={<Product/>}/> 
+            <Route path='/getpro' element={<Store/>}/>
+            
+            <Route path='/mainadmin' element={<Adminmain/>}/>
 
           </Routes>
         
