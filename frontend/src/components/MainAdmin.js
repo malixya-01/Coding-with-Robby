@@ -15,7 +15,7 @@ function Adminmain() {
         </Button>
         <Button type="button" className="btn btn-secondary btn-lg btn-block"
          style={{width:"25%"}}
-         onClick={()=>navigate("create")}>
+         onClick={()=>navigate("admin")}>
           Store Management
         </Button>
       </div>
