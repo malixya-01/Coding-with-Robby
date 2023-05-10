@@ -7,8 +7,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavScrollExample() {
   return (
-    <Navbar bg="light" expand="lg" className="navbar navbar-dark bg-dark" >
-      <Container>
+  
+      
+    <Navbar bg="light" expand="lg" className="navbar navbar-dark bg-dark " >
+      <Container className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center'>
         <Navbar.Brand href="#">ICTFromABC</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -31,13 +34,15 @@ function NavScrollExample() {
                 ALs
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/store">
-              Store
+            <Nav.Link  href="">
+              Cart
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        </div>
       </Container>
     </Navbar>
+    
   );
 }
 
