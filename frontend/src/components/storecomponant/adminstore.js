@@ -1,23 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form,Card} from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import { Prev } from "react-bootstrap/esm/PageItem";
-import Col from 'react-bootstrap/Col';
+import Col from "react-bootstrap/Col";
 
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-
 
 function Product() {
   const navigate = useNavigate();
   const [product, setProduct] = useState([]);
   const [updatedPost, setUpdatedPost] = useState({});
 
-  const[query,setQuery]=useState("");
-
+  const [query, setQuery] = useState("");
 
   const [show, setShow] = useState(false);
 
@@ -68,63 +66,48 @@ function Product() {
   };
 
   const generateReport = () => {
-    
     const doc = new jsPDF();
-    const columns = [
-      "Title",
-      "Price",
-      "Discription",
-    ];
-    const rows = product.map(
-      ({
-        title,
-        price,
-        dis,
-        
-      }) => [
-        title,
-        price,
-        dis,
-        
-      ]
-    );
+    const columns = ["Title", "Price", "Discription"];
+    const rows = product.map(({ title, price, dis }) => [title, price, dis]);
     doc.autoTable({
       head: [columns],
       body: rows,
     });
 
     doc.save("Applicants.pdf");
-  
-}
+  };
 
   return (
-    <div style={{ width: "50%", textAlign: "center", margin: "auto auto" }}>
-      <h1 style={{color:"white"}}>Product</h1>
+    <div style={{ width: "100%", textAlign: "center", margin: "auto auto" }}>
+      <h1 style={{ color: "white" }}>Product</h1>
       <div className="d-flex">
-      <Button
-        className="btn btn-secondary "
-        style={{marginBottom: "1rem" }}
-        variant="outline-dark"
-        onClick={() => navigate(-1)}
-      >
-        
-        BACK
-      </Button>
-      <br></br>
-      <div className="">
-      <Button 
-      className="btn btn-secondary"
-        style={{marginBottom: "1rem" }}
-        variant="outline-dark"
-        onClick={generateReport}
-      >
-        Repoart
-      </Button>
+        <Button
+          className="btn btn-secondary "
+          style={{ marginBottom: "1rem" }}
+          variant="outline-dark"
+          onClick={() => navigate(-1)}
+        >
+          BACK
+        </Button>
+        <br></br>
+        <div className="">
+          <Button
+            className="btn btn-secondary"
+            style={{ marginBottom: "1rem" }}
+            variant="outline-dark"
+            onClick={generateReport}
+          >
+            Repoart
+          </Button>
+        </div>
       </div>
-      </div>
-      <input style={{marginBottom: "1rem"}}
-      class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-      onChange={(e)=>setQuery(e.target.value)}
+      <input
+        style={{ marginBottom: "1rem", width: "50%", margin: "auto auto"  }}
+        class="form-control mr-sm-2 mb-5"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        onChange={(e) => setQuery(e.target.value)}
       />
 
       <Modal show={show} onHide={handleClose}>
@@ -168,28 +151,45 @@ function Product() {
         </Modal.Footer>
       </Modal>
 
-      
+      {product
+        .filter((product) =>
+          product.title
+            ?.toLowerCase()
 
-      {product .filter(
-                      (product) =>
-                      product.title?.toLowerCase()
-                         
-                    .includes(query.toLowerCase()) 
-                    )
-      .map((item) => {
-        return (
-          <div
-            key={item._id}
-            style={{
-              color: "white",
-              backgroundColor:"#383838",
-              border: "solid lightgray 1px ",
-              borderRadius: "2px",
-              marginBottom: "1rem",
-              padding: "1rem",
-            }}
-          >
-            <div className="row">
+            .includes(query.toLowerCase())
+        )
+        .map((item) => {
+          return (
+            <div
+              key={item._id}
+              style={{
+                color: "black",
+                // backgroundColor: "",
+                // border: "solid lightgray 1px ",
+                // borderRadius: "2px",
+                // marginBottom: "1rem",
+                // padding: "1rem",
+              }}
+            >
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={item.image} />
+                <Card.Body>
+                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Text>
+                  {item.dis}
+                  </Card.Text>
+                  <Card.Text className="">Rs-{item.price}</Card.Text>
+                  <div className="d-flex d-flex justify-content-between">
+                    <Button variant="outline-info" className=""onClick={() => updatePost(item)}>
+                      UPDATE
+                    </Button>
+                    <Button variant="outline-danger" className="" onClick={() => deletePost(item._id)}>
+                      DELETE
+                    </Button>
+                  </div>
+                </Card.Body>
+              </Card>
+              {/* <div className="row">
               <div className="col-xl-6 text-start">
                 
                 <img className="w-50 mh-50" src={item.image} alt=""  />
@@ -213,10 +213,10 @@ function Product() {
                   DELETE
                 </Button>
               </div>
+            </div> */}
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 }

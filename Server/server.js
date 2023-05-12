@@ -20,6 +20,7 @@ const storeController = require("./controllers/storeController");
 
 
 
+
 //Create an express app
 const app = express();
 
@@ -83,5 +84,9 @@ app.get("/getStoreItem", storeController.getStoreItem);
 //Sachini
 const notifyRouter = require("./controllers/notificationControler")
 app.use("/notify", notifyRouter)
+
+// chamika
+const classRouter = require("./controllers/timeController");
+app.use("/time",classRouter);
 
 
