@@ -78,16 +78,17 @@ export default function AllVideos() {
 }
 
   return (
+
     <div >
+      <br/>
+      <h2 style={{color:"red"}}><center>Details About All Videos </center></h2>
       <div class="form-group" style={{ width: '800px' ,textAlign: 'center' }} >
-      <br/>
-      <br/>
+      <br/>  
+      <center>  
           <input type='text' placeholder='Enter video title for searching' class="form-control"  onChange={(e)=>{setSearch(e.target.value)}}></input>
+          </center>
       </div>
       <br/>
-      <br/>
-
-
       <table className="table table-dark" style={{ width: '80%', margin: 'auto', backgroundImage: 'url(background.jpg)', backgroundSize: 'cover' }}> 
           <tr>
             <th>URL</th>
@@ -122,10 +123,13 @@ export default function AllVideos() {
           ))}
         </tbody>
       </table>
+      <br/>
  
  <div style={{textAlign: 'center' }}>
       <button class="rounded bg-black px-6 py-2 hover:bg-red-900 text-white " onClick={(e)=>{generateReport()}}>Genarate Report</button>
+      <br/>
     </div>
+    <br/>
     </div>
   );
 }

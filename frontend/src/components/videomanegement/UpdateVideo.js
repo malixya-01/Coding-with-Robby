@@ -11,6 +11,14 @@ export default function UpdateVideos() {
     const [title,setTitle] = useState("");
     const [date,setDatePrevioud] = useState("");
     const [grade,setGrade]=useState("");
+
+    if(!grade){
+      console.log("Please select your grade")
+    }
+
+    if(!title){
+      console.log("Please select your title")
+    }
     
     useEffect(function () {
 
@@ -65,12 +73,14 @@ export default function UpdateVideos() {
     <div class="bg-gradient-to-r from-[#000000] bg-red-800">
 
       <div class='text-center text-3xl text-white p-10 font-bold'>
-      <label>Insert Update Data</label>
+        <br/>
+      <h2 style={{color:"red"}}>Insert Update Data</h2>
+      <br/>
       </div>
    
     
     <div class='flex justify-center'>
-      <form class='border border-x-gray-50 p-10'>
+      <form class='border border-x-gray-50 p-18'>
 
         <div className="form-group">
           <div class='text-white'>
@@ -133,12 +143,17 @@ export default function UpdateVideos() {
     <br/>
     <br/>
       <div class="flex justify-center">
-        <button type="submit" className='rounded bg-black px-6 py-2 hover:bg-red-900 text-white ' onClick={updateData}>
+        <center>
+        <button type="submit" className='rounded bg-black px-6 py-2 hover:bg-red-900 text-white' onClick={updateData}>
           Update
         </button>
+        </center>
+        <br/>
       </div>
       </form>
       </div>
+      <br/>
+      <br/>
     </div>
   );
 }

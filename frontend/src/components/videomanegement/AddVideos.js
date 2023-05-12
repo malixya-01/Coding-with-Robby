@@ -25,12 +25,23 @@ export default function AddVideos() {
   const [selectedVideo, setSelectedVideo] = useState(null)
   const [setUrl,setVideoUrl] = useState('')
   const [grade,gradeSelect]=useState('')
-
+  const [progress,setUploadProgress]=useState('')
+  
   async function addData(e) {
     e.preventDefault()
     
     if (!selectedVideo) {
       alert('Please select a video file')
+      return
+    }
+
+    if (!grade) {
+      alert('Please Select Your Grade')
+      return
+    }
+
+    if (!title) {
+      alert('Please Select Your Title')
       return
     }
     
@@ -39,7 +50,30 @@ export default function AddVideos() {
       const videoRef = storageRef.child(selectedVideo.name)
       await videoRef.put(selectedVideo)
       console.log('Video uploaded successfully')
- 
+
+        //............................
+
+        videoRef.put(selectedVideo).on(
+          "state_changed",
+          (snapshot) => {
+            // Get upload progress
+            const progress = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            console.log(`Upload is ${progress}% done`);
+            setUploadProgress(progress);
+          },
+          (error) => {
+            console.error(error);
+            alert('Failed to upload video')
+          },
+          () => {
+            console.log('Video uploaded successfully');
+          }
+        );
+
+        //...........................
+
       // Get the download URL of the uploaded video
       const downloadUrl = await videoRef.getDownloadURL()
         setVideoUrl(downloadUrl)
@@ -57,11 +91,14 @@ export default function AddVideos() {
       await axios.post('http://localhost:3000/video/add', newVideo)
       console.log('Video details added successfully')
       
-      alert('Video uploaded successfully')
+      //alert('Video uploaded successfully')
+   
+      
     } catch (error) {
       console.error(error)
       alert('Failed to upload video')
     }
+
   }
 
   function SetDate() {
@@ -74,6 +111,8 @@ export default function AddVideos() {
   function handleVideoChange(e) {
     setSelectedVideo(e.target.files[0])
   }
+
+console.log("Upload progress is -",progress)
 
   return (
     
@@ -170,7 +209,7 @@ export default function AddVideos() {
         <br/>
 
         <center>
-        <button type='submit' className='px-6 py-2 text-white bg-black rounded hover:bg-red-900'>
+        <button type='submit' className='px-6 py-2 text-white bg-black rounded hover:bg-red-900' >
           Submit
         </button>
         </center>

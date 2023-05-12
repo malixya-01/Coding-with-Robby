@@ -28,6 +28,7 @@ import ShowGrade11Videos from './videomanegement/ShowGrade11Videos';
 import ShowGrade12Videos from './videomanegement/ShowGrade12Videos';
 import ShowGrade13Videos from './videomanegement/ShowGrade13Videos';
 import VideoSelectByGrade from './videomanegement/videoSelectbyGrade';
+import GraphAboutViews from "./videomanegement/GraphAboutViews";
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
                <Route exact path="/grade12" element={<ShowGrade12Videos/>}/>
                <Route exact path="/grade13" element={<ShowGrade13Videos/>}/>
                 <Route exact path="/selectGrade" element={<VideoSelectByGrade/>}/>
+                <Route exact path="/graph" element={<GraphAboutViews/>}/>
 
           </Routes>
         
