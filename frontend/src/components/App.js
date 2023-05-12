@@ -33,6 +33,7 @@ import DaySchedule from "./TimeTable/DaySchedule";
 import AllClasses from "./TimeTable/AllClasses";
 import TimeTable from "./TimeTable/TimeTable";
 import UpdateClass from "./TimeTable/UpdateClass";
+import ReviewForm from "./storecomponant/review";
 
 
 
@@ -74,6 +75,8 @@ function App() {
             <Route path="/schedule" element={<DaySchedule />} />
             <Route path="/getTime/:id" element={<UpdateClass />} />
             <Route path="/updateTime/:id" element={<UpdateClass />} />
+
+           
           </Routes>
         </div>
       </BrowserRouter>
