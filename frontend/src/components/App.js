@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import "./CSSFile/Star.css"
 import CreateNote from "./CreateNote";
 import NavBar from "./NavBar";
 import FetchNotes from "./FetchNotes";
@@ -10,7 +10,7 @@ import Home from "./Home";
 import AllSlips from "./allSlips";
 import ClassStudents from "./classStudents";
 import AddAdmin from "./AddAdm";
-import AllAdm from "./AllAdm";
+import AllData from "./all";
 import UpdateAdm from "./UpdateAdm";
 import Header from "./NewNavbar";
 import CreatePost from "./storecomponant/storeporduct";
@@ -26,6 +26,8 @@ import CounterFunction from "./Notification/CounterFunction"
 import Addnotice from "./Notification/Addnotice"
 import  CounterClass from "./Notification/CounterClass"
 
+import AllStudents from "./classStudents"
+
 function App() {
   return (
     <div className="App">
@@ -33,18 +35,18 @@ function App() {
         <Header />
         <div className="container">
           <Routes>
-            <Route path="/" element={<ClassStudents />} />
+            <Route path="/" element={<Adminmain />} />
             <Route path="/add" element={<CreateNote />} />
             <Route path="/get" element={<FetchNotes />} />
             <Route path="/update/:id" element={<UpdateNote />} />
             <Route path="/enroll/:id" element={<Payment />} />
 
             <Route path="/addAdm" element={<AddAdmin />} />
-            <Route path="/allAdm" element={<AllAdm />} />
+            <Route path="/allAdm" element={<AllData />} />
             <Route path="/updateAdm/:id" element={<UpdateAdm />} />
 
             <Route path="/create" element={<CreatePost />} />
-            <Route path="/mainadmin/admin" element={<Product />} />
+            <Route path="/admin" element={<Product />} />
             <Route path="/getpro" element={<Store />} />
 
             <Route path="/mainadmin" element={<Adminmain />} />
@@ -55,6 +57,8 @@ function App() {
             <Route exact path="/countFunction" element={<CounterFunction />} />
             <Route exact path="/addNotice" element={<Addnotice />} />
             <Route exact path="/counterClass" element={<CounterClass />} />
+
+            <Route path="/classStu" element={< AllStudents/>} />
            
           </Routes>
         </div>

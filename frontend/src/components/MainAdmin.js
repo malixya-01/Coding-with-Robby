@@ -8,10 +8,10 @@ function Adminmain() {
     <div>
       <h1 style={{ textAlign: "center" }}>Route your page </h1>
       <div className="d-flex justify-content-around mt-5">
-        <Button type="button" className="btn btn-primary btn-lg btn-block"
+        <Button type="button" className="btn btn-secondary btn-lg btn-block"
          style={{width:"25%"}}
-         onClick={()=> navigate("")}>
-          Time Table Management
+         onClick={()=> navigate("allAdm")}>
+          Admin Management
         </Button>
         <Button type="button" className="btn btn-secondary btn-lg btn-block"
          style={{width:"25%"}}
@@ -20,19 +20,24 @@ function Adminmain() {
         </Button>
       </div>
       <div className="d-flex justify-content-around mt-5">
-        <Button type="button" className="btn btn-primary btn-lg btn-block" 
+        <Button type="button" className="btn btn-secondary btn-lg btn-block" 
         style={{width:"25%"}}>
           Class Management
         </Button>
         <Button type="button" className="btn btn-secondary btn-lg btn-block"
          style={{width:"25%"}}>
-          Vido lesson Management
+          Video lesson Management
         </Button>
       </div>
       <div className="d-flex justify-content-around mt-5">
-        <Button type="button" className="btn btn-primary btn-lg btn-block" 
-        style={{width:"25%"}}>
+        <Button type="button" className="btn btn-secondary btn-lg btn-block" 
+        style={{width:"25%"}}
+        onClick={()=> navigate("allNotice")}>
             Notification Management
+        </Button>
+        <Button type="button" className="btn btn-secondary btn-lg btn-block"
+         style={{width:"25%"}}>
+          Student Management
         </Button>
        
       </div>

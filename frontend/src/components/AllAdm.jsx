@@ -72,15 +72,15 @@ export default function RecordList() {
    <div className="all">
      <h3 style={{textAlign:"left", fontSize:"40px", marginTop: 30, marginLeft: 50, fontFamily:"poppins", fontWeight:"bold"}}>Employees</h3>
      <button className="new rounded-5" style={{alignItems:"right", marginTop: 30, marginLeft: 50}}>
-               <a style={{textDecoration:"none", color:"white"}} href="/addAdm"> Add new Admin </a>
+               <a style={{textDecoration:"none", color:"black"}} href="/addAdm"> Add new Admin </a>
      </button>
      <table className="table" style={{marginTop: 30, marginLeft: 50, border:"transparent"}}>
        <thead>
          <tr>
-           <th style={{fontFamily:"poppins" , color:"white", fontSize:"25px"}}>ID</th>
-           <th style={{fontFamily:"poppins" , color:"white", fontSize:"25px"}}>Name</th>
-           <th style={{fontFamily:"poppins" , color:"white", fontSize:"25px"}}>Username</th>
-           <th style={{fontFamily:"poppins", color:"white", fontSize:"25px"}}>Phone</th>
+           <th style={{fontFamily:"poppins" , color:"black", fontSize:"25px"}}>ID</th>
+           <th style={{fontFamily:"poppins" , color:"black", fontSize:"25px"}}>Name</th>
+           <th style={{fontFamily:"poppins" , color:"black", fontSize:"25px"}}>Username</th>
+           <th style={{fontFamily:"poppins", color:"black", fontSize:"25px"}}>Phone</th>
          </tr>
        </thead>
        <tbody className="data" style={{fontFamily:"poppins", fontSize:"20px"}}>{recordList()}</tbody>

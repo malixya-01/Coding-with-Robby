@@ -70,14 +70,15 @@ export default function AllData() {
   }
 
   return (
-    <div className="p-4 bg-gradient-to-r from-gray-900 to-gray-700">
+    <div className="p-4">
     <h3 style={{textAlign:"left", fontSize:"40px", marginTop: 30, marginLeft: 50, fontFamily:"poppins", fontWeight:"bold"}}>Employees</h3>
     <button className="new rounded-5" style={{alignItems:"right", marginTop: 10, marginLeft: 50,  marginBottom: 20}}>
-               <a style={{textDecoration:"none", color:"white"}} href="/addAdm"> Add new Admin </a>
+               <a style={{textDecoration:"none", color:"black"}} href="/addAdm"> Add new Admin </a>
      </button>
+     
      <button 
-      className="new btn-secondary"
-        style={{marginLeft:"50px", width:"50%"}}
+      className="new btn-secondary new rounded-5 "
+        style={{marginLeft:"50px", width:"20%", }}
         variant="outline-dark"
         onClick={generateReport}
       >
@@ -88,9 +89,9 @@ export default function AllData() {
       </div>
       <br/>
       <br/>
-      <table className="table table-striped table-dark bg-gradient-to-r from-gray-900 to-gray-700">
+      <table className="table " style={{color:"white"}}>
         <thead>
-          <tr>
+          <tr style={{color:"white"}}>
             <th>ID</th>
             <th>Name</th>
             <th>Username</th>
@@ -99,9 +100,9 @@ export default function AllData() {
             <th>Delete</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{color:"white"}}>
           {filteredData.map((item, index) => (
-            <tr key={index}>
+            <tr key={index} >
               <td>{item.aid}</td>
               <td>{item.name}</td>
               <td>{item.username}</td>
