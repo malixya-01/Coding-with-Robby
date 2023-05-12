@@ -19,6 +19,7 @@ const enrollmentsController= require("./controllers/enrollmentsController");
 const storeController = require("./controllers/storeController");
 
 
+
 //Create an express app
 const app = express();
 
@@ -78,5 +79,9 @@ app.get("/getitems", storeController.getItems);
 app.put("/updateitem/:id", storeController.updateItem);
 app.delete("/deleteitem/:id", storeController.deleteItem);
 app.get("/getStoreItem", storeController.getStoreItem);
+
+//Sachini
+const notifyRouter = require("./controllers/notificationControler")
+app.use("/notify", notifyRouter)
 
 

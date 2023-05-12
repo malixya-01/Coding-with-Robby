@@ -20,6 +20,12 @@ import Adminmain from "./MainAdmin";
 
 import DisplayProduct from "./storecomponant/product";
 
+import Allnotices  from "./Notification/Allnotices"
+import UpdateData from "./Notification/updateData"
+import CounterFunction from "./Notification/CounterFunction"
+import Addnotice from "./Notification/Addnotice"
+import  CounterClass from "./Notification/CounterClass"
+
 function App() {
   return (
     <div className="App">
@@ -43,6 +49,13 @@ function App() {
 
             <Route path="/mainadmin" element={<Adminmain />} />
             <Route path="/Dproduct" element={<DisplayProduct />} />
+
+            <Route exact path="/allNotice" element={<Allnotices />} />
+            <Route exact path="/update/:id" element={<UpdateData />} />
+            <Route exact path="/countFunction" element={<CounterFunction />} />
+            <Route exact path="/addNotice" element={<Addnotice />} />
+            <Route exact path="/counterClass" element={<CounterClass />} />
+           
           </Routes>
         </div>
       </BrowserRouter>

@@ -88,7 +88,7 @@ function CreatePost() {
         .then((res) => {
           notify("Success");
           console.log(res);
-          navigate("/admin");
+          navigate("/mainadmin/admin");
           //   navigate("/create/product");
         })
         .catch((err) => setErrorMessage(err.response.data.message));
