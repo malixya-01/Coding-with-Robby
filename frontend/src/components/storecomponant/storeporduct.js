@@ -88,7 +88,7 @@ function CreatePost() {
         .then((res) => {
           notify("Success");
           console.log(res);
-          navigate("/mainadmin/admin");
+          navigate("/admin");
           //   navigate("/create/product");
         })
         .catch((err) => setErrorMessage(err.response.data.message));
@@ -108,6 +108,7 @@ function CreatePost() {
     <div
       className="d-flex justify-content-center align-items-center flex-column mt-5 mb-5  p-5 shadow-lg bg-white rounded  border border-dark  border-3 "
       style={{
+        color: "black",
         width: "30%",
         margin: "auto auto",
         textAlign: "center",

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./CSSFile/Star.css"
+import "./CSSFile/Star.css";
 import CreateNote from "./CreateNote";
 import NavBar from "./NavBar";
 import FetchNotes from "./FetchNotes";
@@ -20,13 +20,21 @@ import Adminmain from "./MainAdmin";
 
 import DisplayProduct from "./storecomponant/product";
 
-import Allnotices  from "./Notification/Allnotices"
-import UpdateData from "./Notification/updateData"
-import CounterFunction from "./Notification/CounterFunction"
-import Addnotice from "./Notification/Addnotice"
-import  CounterClass from "./Notification/CounterClass"
+import Allnotices from "./Notification/Allnotices";
+import UpdateData from "./Notification/updateData";
+import CounterFunction from "./Notification/CounterFunction";
+import Addnotice from "./Notification/Addnotice";
+import CounterClass from "./Notification/CounterClass";
 
-import AllStudents from "./classStudents"
+import AllStudents from "./classStudents";
+import AddClass from "./TimeTable/AddClass";
+
+import DaySchedule from "./TimeTable/DaySchedule";
+import AllClasses from "./TimeTable/AllClasses";
+import TimeTable from "./TimeTable/TimeTable";
+import UpdateClass from "./TimeTable/UpdateClass";
+
+
 
 function App() {
   return (
@@ -58,8 +66,14 @@ function App() {
             <Route exact path="/addNotice" element={<Addnotice />} />
             <Route exact path="/counterClass" element={<CounterClass />} />
 
-            <Route path="/classStu" element={< AllStudents/>} />
-           
+            <Route path="/classStu" element={<AllStudents />} />
+
+            <Route path="/addtime" element={<AddClass />} />
+            <Route path="/alltime" element={<AllClasses />} />
+            <Route path="/Timetable" element={<TimeTable />} />
+            <Route path="/schedule" element={<DaySchedule />} />
+            <Route path="/getTime/:id" element={<UpdateClass />} />
+            <Route path="/updateTime/:id" element={<UpdateClass />} />
           </Routes>
         </div>
       </BrowserRouter>
