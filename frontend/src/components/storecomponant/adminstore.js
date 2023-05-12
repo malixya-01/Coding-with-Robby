@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Form,Card} from "react-bootstrap";
+import { Button, Form, Card } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
@@ -80,14 +80,14 @@ function Product() {
   return (
     <div style={{ width: "100%", textAlign: "center", margin: "auto auto" }}>
       <h1 style={{ color: "white" }}>Product</h1>
-      <div className="d-flex">
+      <div className="d-flex d-flex justify-content-between">
         <Button
           className="btn btn-secondary "
           style={{ marginBottom: "1rem" }}
           variant="outline-dark"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/create")}
         >
-          BACK
+          Add product
         </Button>
         <br></br>
         <div className="">
@@ -102,7 +102,7 @@ function Product() {
         </div>
       </div>
       <input
-        style={{ marginBottom: "1rem", width: "50%", margin: "auto auto"  }}
+        style={{ marginBottom: "1rem", width: "50%", margin: "auto auto" }}
         class="form-control mr-sm-2 mb-5"
         type="search"
         placeholder="Search"
@@ -112,7 +112,7 @@ function Product() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update a PRODUCT</Modal.Title>
+          <Modal.Title style={{color:"black"}}>Update PRODUCT</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -145,12 +145,12 @@ function Product() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={saveupdatePost}>
+          <Button variant="btn btn-success" onClick={saveupdatePost}>
             Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
-
+      <div className="d-flex flex-row containe gap-5">
       {product
         .filter((product) =>
           product.title
@@ -166,29 +166,37 @@ function Product() {
                 color: "black",
                 // backgroundColor: "",
                 // border: "solid lightgray 1px ",
-                // borderRadius: "2px",
+                borderRadius: "2px",
                 // marginBottom: "1rem",
                 // padding: "1rem",
               }}
             >
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={item.image} />
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>
-                  {item.dis}
-                  </Card.Text>
-                  <Card.Text className="">Rs-{item.price}</Card.Text>
-                  <div className="d-flex d-flex justify-content-between">
-                    <Button variant="outline-info" className=""onClick={() => updatePost(item)}>
-                      UPDATE
-                    </Button>
-                    <Button variant="outline-danger" className="" onClick={() => deletePost(item._id)}>
-                      DELETE
-                    </Button>
-                  </div>
-                </Card.Body>
-              </Card>
+              
+                <Card style={{ width: "18rem", backgroundColor: "#a5a7b2d6"}}>
+                  <Card.Img style={{ width: "100%", height:"18rem"  }} variant="top" src={item.image} />
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text>{item.dis}</Card.Text>
+                    <Card.Text style={{fontWeight:"700"}}>Rs-{item.price}</Card.Text>
+                    <div className="d-flex d-flex justify-content-between">
+                      <Button
+                        variant="outline-info"
+                        className=""
+                        onClick={() => updatePost(item)}
+                      >
+                        UPDATE
+                      </Button>
+                      <Button
+                        variant="outline-danger"
+                        className=""
+                        onClick={() => deletePost(item._id)}
+                      >
+                        DELETE
+                      </Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              
               {/* <div className="row">
               <div className="col-xl-6 text-start">
                 
@@ -217,6 +225,7 @@ function Product() {
             </div>
           );
         })}
+    </div>
     </div>
   );
 }
