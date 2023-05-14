@@ -27,7 +27,7 @@ function Store() {
     <>
       <div style={{ color: "Black" }} className="text-center">
         <hnavbar />
-        <h1>Store</h1>
+        <h1 style={{color:"white"}}>Store</h1>
         <Row className="d-flex justify-content-center p-5">
           {store.map((item) => {
             return (

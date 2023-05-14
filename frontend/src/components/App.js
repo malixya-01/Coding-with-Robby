@@ -6,9 +6,6 @@ import NavBar from "./NavBar";
 import FetchNotes from "./FetchNotes";
 import UpdateNote from "./UpdateNote";
 import Payment from "./payment";
-import Home from "./Home";
-import AllSlips from "./allSlips";
-import ClassStudents from "./classStudents";
 import AddAdmin from "./AddAdm";
 import AllData from "./all";
 import UpdateAdm from "./UpdateAdm";
@@ -33,9 +30,16 @@ import DaySchedule from "./TimeTable/DaySchedule";
 import AllClasses from "./TimeTable/AllClasses";
 import TimeTable from "./TimeTable/TimeTable";
 import UpdateClass from "./TimeTable/UpdateClass";
-import ReviewForm from "./storecomponant/review";
 
-
+import AddVideos from "./videomanegement/AddVideos";
+import Allvideos from "./videomanegement/AllVideos";
+import UpdateVideos from "./videomanegement/UpdateVideo";
+import ShowGrade10Videos from "./videomanegement/ShowGrade10Videos";
+import ShowGrade11Videos from "./videomanegement/ShowGrade11Videos";
+import ShowGrade12Videos from "./videomanegement/ShowGrade12Videos";
+import ShowGrade13Videos from "./videomanegement/ShowGrade13Videos";
+import VideoSelectByGrade from "./videomanegement/videoSelectbyGrade";
+import GraphAboutViews from "./videomanegement/GraphAboutViews";
 
 function App() {
   return (
@@ -76,7 +80,15 @@ function App() {
             <Route path="/getTime/:id" element={<UpdateClass />} />
             <Route path="/updateTime/:id" element={<UpdateClass />} />
 
-           
+            <Route exact path="/show" element={<Allvideos />} />
+            <Route exact path="/addVideo" element={<AddVideos />} />
+            <Route exact path="/update1/:id" element={<UpdateVideos />} />
+            <Route exact path="/grade10" element={<ShowGrade10Videos />} />
+            <Route exact path="/grade11" element={<ShowGrade11Videos />} />
+            <Route exact path="/grade12" element={<ShowGrade12Videos />} />
+            <Route exact path="/grade13" element={<ShowGrade13Videos />} />
+            <Route exact path="/selectGrade" element={<VideoSelectByGrade />} />
+            <Route exact path="/graph" element={<GraphAboutViews />} />
           </Routes>
         </div>
       </BrowserRouter>
