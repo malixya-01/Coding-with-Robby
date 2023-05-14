@@ -90,3 +90,6 @@ const classRouter = require("./controllers/timeController");
 app.use("/time",classRouter);
 
 
+//hrith
+const studentRouter=require('./controllers/routes');
+app.use('/video',studentRouter);
