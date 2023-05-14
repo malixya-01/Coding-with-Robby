@@ -25,7 +25,8 @@ function Adminmain() {
           Class Management
         </Button>
         <Button type="button" className="btn btn-secondary btn-lg btn-block"
-         style={{width:"25%"}}>
+         style={{width:"25%"}}
+         onClick={()=>navigate("show")}>
           Video lesson Management
         </Button>
       </div>
