@@ -26,7 +26,7 @@ function NavScrollExample() {
             <Nav.Link href="/allAdm">Employees</Nav.Link>
             <NavDropdown title="Class" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Grade 10</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
+              <NavDropdown.Item href="/purchase/grade11">
                 Grade 11
               </NavDropdown.Item>
               <NavDropdown.Divider />
@@ -37,6 +37,10 @@ function NavScrollExample() {
             <Nav.Link  href="/getpro">
               Store
             </Nav.Link>
+            <NavDropdown title="Student" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/#">Purchase Class</NavDropdown.Item>
+              <NavDropdown.Item href="#action4"> Requested Classes</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
         </div>

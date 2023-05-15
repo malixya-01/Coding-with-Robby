@@ -41,6 +41,8 @@ import ShowGrade13Videos from "./videomanegement/ShowGrade13Videos";
 import VideoSelectByGrade from "./videomanegement/videoSelectbyGrade";
 import GraphAboutViews from "./videomanegement/GraphAboutViews";
 
+import PurchaseClass from "./PaymentComponents/PurchaseClass";
+
 function App() {
   return (
     <div className="App">
@@ -89,6 +91,12 @@ function App() {
             <Route exact path="/grade13" element={<ShowGrade13Videos />} />
             <Route exact path="/selectGrade" element={<VideoSelectByGrade />} />
             <Route exact path="/graph" element={<GraphAboutViews />} />
+
+            <Route exact path="/purchase" element={<PurchaseClass />} />
+            <Route exact path="/purchase/:id" element={<PurchaseClass />} />
+
+
+
           </Routes>
         </div>
       </BrowserRouter>
