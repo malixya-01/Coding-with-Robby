@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import { Button } from "react-bootstrap";
 
 export default function RequestedClasses() {
 
@@ -18,6 +19,15 @@ export default function RequestedClasses() {
         console.log(res);
         setSlips(res.data.slips);
     };
+
+    const deleteRecord = async (id) => {
+        //delete a Slips
+        const res = await axios.delete(`http://localhost:3000/deleteSlip/${id}`);
+        window.location.reload();        
+    };
+
+
+    
 
     return (
         <div className="container-md">
@@ -42,13 +52,13 @@ export default function RequestedClasses() {
                                         </a>
                                     </td>
                                     <td>
-                                        <a className="btn btn-warning" href="#">
-                                            <i className="fas fa-edit"></i>&nbsp;Update
-                                        </a>
-                                        &nbsp;&nbsp;
-                                        <a className="btn btn-danger" href="#">
-                                            <i className="fas fa-edit"></i>Delete
-                                        </a>
+                                        
+                                        <Button className="btn btn-warning">
+                                                    Update
+                                        </Button>                               
+                                        &nbsp;&nbsp;                           
+                                        <Button  className="btn btn-danger" onClick={() =>deleteRecord(slip._id)}>Delete</Button>
+                                      
                                     </td>
                                 </tr>
                             );

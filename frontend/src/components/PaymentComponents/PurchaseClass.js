@@ -92,7 +92,7 @@ function PurchaseClass() {
         .then((res) => {
           notify("Success");
           console.log(res);
-          navigate("/admin");
+          navigate("/mypayments");
           //   navigate("/create/product");
         })
         .catch((err) => setErrorMessage(err.response.data.message)); 
