@@ -13,15 +13,15 @@ function PurchaseClass() {
   const [payment, setPayment] = useState({
     classId: useParams().id,
     slip: ""
-});
+  });
 
 
   const [errorMessage, setErrorMessage] = useState(null);
 
   // states to stre form data
-  const [title, setTitle] = useState("");
+  /* const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(""); */
   const [p_image, setP_image] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
 
@@ -82,11 +82,12 @@ function PurchaseClass() {
 
       // send data to the database
       const res = axios
-        .post("http://localhost:3000/additem", {
-          title: title,
+        .post("http://localhost:3000/uploadSlip", {
+          /* title: title,
           dis: description,
-          price: price,
-          image: p_image,
+          price: price, */
+          classId: payment.classId,
+          slip: p_image,
         })
         .then((res) => {
           notify("Success");
