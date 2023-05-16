@@ -1,7 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // toastify
@@ -9,19 +9,17 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function PurchaseClass() {
-
   const [payment, setPayment] = useState({
     classId: useParams().id,
-    slip: ""
+    slip: "",
   });
-
 
   const [errorMessage, setErrorMessage] = useState(null);
 
   // states to stre form data
   /* const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(""); */
+  const [description, setDescription] = useState(""); */
+  const [mobile, setMobile] = useState("");
   const [p_image, setP_image] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
 
@@ -80,12 +78,21 @@ function PurchaseClass() {
   const handleClick = (event) => {
     event.preventDefault();
 
-      // send data to the database
+    // send data to the database
+    // check if all fields are filled
+    if (mobile === "") {
+      // Set error message
+      setErrorMessage("Please fill your mobile number.");
+    } else if (mobile.length !== 10) {
+      setErrorMessage("Please enter a valid mobile number.");
+    } else if (p_image === "") {
+      setErrorMessage("Please upload your slip.");
+    } else {
       const res = axios
         .post("http://localhost:3000/uploadSlip", {
           /* title: title,
-          dis: description,
-          price: price, */
+            dis: description, */
+          mobile: mobile,
           classId: payment.classId,
           slip: p_image,
         })
@@ -95,8 +102,8 @@ function PurchaseClass() {
           navigate("/mypayments");
           //   navigate("/create/product");
         })
-        .catch((err) => setErrorMessage(err.response.data.message)); 
-  
+        .catch((err) => setErrorMessage(err.response.data.message));
+    }
 
     // axios
     //   .post("/create", post)
@@ -106,7 +113,7 @@ function PurchaseClass() {
     //     navigate("/create/product");
     //   })
     //   .catch((err) => console.log(err));
- };
+  };
 
   return (
     <div
@@ -142,17 +149,19 @@ function PurchaseClass() {
               setDescription(e.target.value);
             }}
           />
+          */}
 
           <Form.Control
-            name="price"
-            placeholder="Product Price"
+            name="mobile"
+            type="number"
+            placeholder="Enter mobile number"
             required
             style={{ marginBottom: "1rem" }}
             onChange={(e) => {
-              setPrice(e.target.value);
+              setMobile(e.target.value);
             }}
           />
- */}
+
           <input
             type="file"
             className="form-control mb-3"
