@@ -17,6 +17,13 @@ export default function AllSlips() {
     setSlips(res.data.payments);
   };
 
+  const addEnrollment = async (e) => {
+    e.preventDefault();
+
+    //Create the note
+    const res = await axios.post("http://localhost:3000/enrollStudent/");
+  };
+
   return (
     <div className="container-md">
       <h2>All slips</h2>
@@ -55,9 +62,12 @@ export default function AllSlips() {
                     {slip.mobile}
                   </td>
                   <td>
-                    <a className="btn btn-warning" href="#">
-                      <i className="fas fa-edit"></i>&nbsp;Add Student
-                    </a>
+                    <button
+                      className="btn btn-warning"
+                      onClick={() => addEnrollment(slip.classId)}
+                    >
+                      Add Student
+                    </button>
                   </td>
                 </tr>
               );

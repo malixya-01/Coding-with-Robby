@@ -50,6 +50,20 @@ const fetchUserSlips = async (req, res) => {
   }
 };
 
+const fetchASlip = async (req, res) => {
+  try {
+    //Get id off the url
+    const paymentId = req.params.id;
+    //Find the note using that id
+    const note = await SlipPayment.findOne({ _id: paymentId });
+    //Respond with the note
+    res.json({ note });
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(400);
+  }
+};
+
 const updatePayment = async (req, res) => {
   try {
     //Get the id off the url
@@ -101,5 +115,6 @@ module.exports = {
   fetchAll,
   fetchUserSlips,
   updatePayment,
+  fetchASlip,
   deleteSlip,
 };

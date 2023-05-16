@@ -3,23 +3,19 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
-
 //Import dependencies
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser')
-const connectToDb = require('./config/connectToDb');
-const notesController = require('./controllers/notesController');
-const usersController = require('./controllers/usersController');
-const requireAuth = require('./middleware/requireAuth');
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const connectToDb = require("./config/connectToDb");
+const notesController = require("./controllers/notesController");
+const usersController = require("./controllers/usersController");
+const requireAuth = require("./middleware/requireAuth");
 const classesController = require("./controllers/classesController");
 const slipPaymentsController = require("./controllers/slipPaymentsController");
-const enrollmentsController= require("./controllers/enrollmentsController");
+const enrollmentsController = require("./controllers/enrollmentsController");
 const storeController = require("./controllers/storeController");
-
-
-
 
 //Create an express app
 const app = express();
@@ -27,42 +23,43 @@ const app = express();
 //Configure express app
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: true,
-  credentials: true
-}));
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Connect to database
 connectToDb();
 
 //Routing
-app.post('/signup', usersController.signup);
-app.post('/login', usersController.login);
-app.get('/logout', usersController.logout);
-app.get('/checkAuth', requireAuth, usersController.checkAuth);
+app.post("/signup", usersController.signup);
+app.post("/login", usersController.login);
+app.get("/logout", usersController.logout);
+app.get("/checkAuth", requireAuth, usersController.checkAuth);
 
 app.post("/notes", requireAuth, notesController.createNote);
 app.get("/notes", requireAuth, notesController.fetchNotes);
 app.get("/notes/:id", requireAuth, notesController.fetchNote);
-app.put('/notes/:id', requireAuth, notesController.updateNote);
+app.put("/notes/:id", requireAuth, notesController.updateNote);
 app.delete("/notes/:id", requireAuth, notesController.deleteNote);
 
 app.post("/newClass", classesController.createClass);
 app.get("/getClasses", classesController.fetchClasses);
 
-app.post("/uploadSlip",  slipPaymentsController.createSlipPayment);
+app.post("/uploadSlip", slipPaymentsController.createSlipPayment);
 app.get("/allSlips", slipPaymentsController.fetchAll);
-app.get("/mySlips",  slipPaymentsController.fetchUserSlips);
-app.put('/updateSlip/:id',  slipPaymentsController.updatePayment);
-app.delete("/deleteSlip/:id",  slipPaymentsController.deleteSlip);
+app.get("/mySlips", slipPaymentsController.fetchUserSlips);
+app.put("/updateSlip/:id", slipPaymentsController.updatePayment);
+app.delete("/deleteSlip/:id", slipPaymentsController.deleteSlip);
+app.get("/fetchPayment/:id", slipPaymentsController.fetchASlip);
 
-app.post("/enrollStudent", requireAuth, enrollmentsController.addEnrollment);
+app.post("/enrollStudent", enrollmentsController.addEnrollment);
 app.get("/getStudents/:id", enrollmentsController.fetchStudents);
-app.delete("/deleteStudents/:id", requireAuth, enrollmentsController.deleteEnrollment);
+app.delete("/deleteStudents/:id", enrollmentsController.deleteEnrollment);
 
 //Nadula
 const adminRouter = require("./controllers/admins.js");
@@ -82,14 +79,13 @@ app.delete("/deleteitem/:id", storeController.deleteItem);
 app.get("/getStoreItem", storeController.getStoreItem);
 
 //Sachini
-const notifyRouter = require("./controllers/notificationControler")
-app.use("/notify", notifyRouter)
+const notifyRouter = require("./controllers/notificationControler");
+app.use("/notify", notifyRouter);
 
 // chamika
 const classRouter = require("./controllers/timeController");
-app.use("/time",classRouter);
-
+app.use("/time", classRouter);
 
 //hrith
-const studentRouter=require('./controllers/routes');
-app.use('/video',studentRouter);
+const studentRouter = require("./controllers/routes");
+app.use("/video", studentRouter);

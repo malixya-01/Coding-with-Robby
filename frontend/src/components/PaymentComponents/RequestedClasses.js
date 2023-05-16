@@ -51,7 +51,9 @@ export default function RequestedClasses() {
                     </a>
                   </td>
                   <td>
-                    <Button className="btn btn-warning">Update</Button>
+                    <a href={`updatepurchase/${slip.id}`}>
+                      <Button className="btn btn-warning">Update</Button>
+                    </a>
                     &nbsp;&nbsp;
                     <Button
                       className="btn btn-danger"

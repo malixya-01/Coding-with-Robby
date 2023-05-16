@@ -1,16 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const enrollmentSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    },
-    classId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Class"
-    }
+  user: String,
+  classId: String,
 });
 
-const enrollment = mongoose.model('Enrollment', enrollmentSchema)
+const enrollment = mongoose.model("Enrollment", enrollmentSchema);
 
 module.exports = enrollment;
