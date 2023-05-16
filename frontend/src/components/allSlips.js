@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 export default function AllSlips() {
   //state
-  const [slips, setSlips] = useState(null);
+  const [slips, setSlips] = useState([]);
 
   //Use effect
   useEffect(() => {
@@ -24,9 +26,28 @@ export default function AllSlips() {
     const res = await axios.post("http://localhost:3000/enrollStudent/");
   };
 
+  const generateReport = () => {
+    const doc = new jsPDF();
+    const columns = ["User", "Class","Mobile"];
+    const rows = slips.map(({ user, classId, mobile }) => [
+      user,
+      classId,
+      mobile,
+    ]);
+    doc.autoTable({
+      head: [columns],
+      body: rows,
+    });
+
+    doc.save("Applicants.pdf");
+  };
+
   return (
     <div className="container-md">
       <h2>All slips</h2>
+      <button className="btn btn-warning" onClick={generateReport}>
+        Report
+      </button>
 
       <table class="table">
         <thead>
