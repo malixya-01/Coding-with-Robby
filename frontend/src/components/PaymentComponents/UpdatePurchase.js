@@ -16,18 +16,18 @@ function UpdatePurchase() {
 
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const fetchASlip = async (id) => {
-    //Fetch the Slips
-    const res = await axios.get(`http://localhost:3000/fetchPayment${id}`);
-    //Set to state
-    console.log(res);
-    //setSlips(res.data.slips);
-  };
-
   //Use effect
   useEffect(() => {
     fetchASlip(payment.classId);
   }, []);
+
+  const fetchASlip = async (id) => {
+    //Fetch the Slips
+    const res = await axios.get(`http://localhost:3000/fetchPayment/${id}`);
+    //Set to state
+    console.log(res);
+    //setSlips(res.data.slips);
+  };
 
   // states to stre form data
   /* const [title, setTitle] = useState("");
