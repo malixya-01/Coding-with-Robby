@@ -39,7 +39,7 @@ function NavScrollExample() {
             </Nav.Link>
             <NavDropdown title="Student" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/#">Purchase Class</NavDropdown.Item>
-              <NavDropdown.Item href="#action4"> Requested Classes</NavDropdown.Item>
+              <NavDropdown.Item href="mypayments"> Requested Classes</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

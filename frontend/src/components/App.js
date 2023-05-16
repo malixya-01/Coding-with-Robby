@@ -43,6 +43,7 @@ import GraphAboutViews from "./videomanegement/GraphAboutViews";
 
 import PurchaseClass from "./PaymentComponents/PurchaseClass";
 import Payments from "./allSlips";
+import RequestedClasses from "./PaymentComponents/RequestedClasses";
 
 function App() {
   return (
@@ -96,6 +97,7 @@ function App() {
             <Route exact path="/purchase" element={<PurchaseClass />} />
             <Route exact path="/purchase/:id" element={<PurchaseClass />} />
             <Route exact path="/payments" element={<Payments />} />
+            <Route exact path="/mypayments" element={<RequestedClasses />} />
 
 
 

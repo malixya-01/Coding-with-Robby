@@ -9,7 +9,8 @@ const createSlipPayment = async (req, res) => {
         const slipPayment = await SlipPayment.create({
             classId,
             slip,
-            user:"user1"
+            user:"user1",
+            valid:false
         });
 
         //respond with the new slipPayment
@@ -41,7 +42,7 @@ const fetchUserSlips = async (req, res) => {
         //Get  id off the url
         //const slipId = req.params.id;
         //find all slips
-        const slips = await SlipPayment.find({ user: "user1" });
+        const slips = await SlipPayment.find({ user: "user1", valid: false });
         //respond with all slips
         res.json({ slips })
 

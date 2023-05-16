@@ -6,7 +6,8 @@ const slipPaymentSchema = new mongoose.Schema({
     slip: {
         type: String,
         required: true
-    }
+    },
+    valid: Boolean
 });
 
 const SlipPayment = mongoose.model('SlipPayment', slipPaymentSchema)
