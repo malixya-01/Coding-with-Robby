@@ -40,7 +40,17 @@ function Adminmain() {
          style={{width:"25%"}}>
           Student Management
         </Button>
-       
+      </div>
+      <div className="d-flex justify-content-around mt-5">
+        <Button type="button" className="btn btn-secondary btn-lg btn-block" 
+        style={{width:"25%"}}
+        onClick={()=> navigate("payments")}>
+            Payment Management
+        </Button>
+        <Button type="button" className="btn btn-secondary btn-lg btn-block"
+         style={{width:"25%"}}>
+          Feedback Management
+        </Button>
       </div>
     </div>
   );
