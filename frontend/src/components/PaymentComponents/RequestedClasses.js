@@ -32,10 +32,13 @@ export default function RequestedClasses() {
       <table class="table">
         <thead>
           <tr>
-            <th scope="col" style={{ color: "white", fontSize: "25px" }}>
+            <th scope="col" style={{ color: "white", fontSize: "18px" }}>
               Slip
             </th>
-            <th scope="col" style={{ color: "white", fontSize: "25px" }}>
+            <th scope="col" style={{ color: "white", fontSize: "18px" }}>
+              Class
+            </th>
+            <th scope="col" style={{ color: "white", fontSize: "18px" }}>
               Options
             </th>
           </tr>
@@ -49,6 +52,9 @@ export default function RequestedClasses() {
                     <a href={slip.slip} style={{ textDecoration: "none" }}>
                       Click here to view slip
                     </a>
+                  </td>
+                  <td style={{ color: "white", fontSize: "18px" }}>
+                      {slip.classId}
                   </td>
                   <td>
                     <a href={`updatepurchase/${slip._id}`}>
