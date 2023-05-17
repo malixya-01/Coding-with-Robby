@@ -14,6 +14,14 @@ function UpdatePurchase() {
     slip: "",
   });
 
+  const [updateForm, setUpdateForm] = useState({
+    _id: null,
+    mobile:"",
+    classId:"",
+    slip:"",
+    user:""
+});
+
   const [errorMessage, setErrorMessage] = useState(null);
 
   //Use effect
@@ -26,7 +34,18 @@ function UpdatePurchase() {
     const res = await axios.get(`http://localhost:3000/fetchPayment/${id}`);
     //Set to state
     console.log(res);
-    //setSlips(res.data.slips);
+   
+    //set state
+        setUpdateForm({
+            _id: res.data.note._id,
+            mobile: res.data.note.mobile,
+            classId: res.data.note.classId,
+            slip: res.data.note.slip,
+            user: res.data.note.user,
+        });
+
+        setP_image(res.data.note.slip)
+
   };
 
   // states to stre form data
@@ -93,19 +112,17 @@ function UpdatePurchase() {
 
     // send data to the database
     // check if all fields are filled
-    if (mobile === "") {
+    if (updateForm.mobile === "") {
       // Set error message
       setErrorMessage("Please fill your mobile number.");
-    } else if (mobile.length !== 10) {
+    } else if (updateForm.mobile.length !== 10) {
       setErrorMessage("Please enter a valid mobile number.");
     } else if (p_image === "") {
       setErrorMessage("Please upload your slip.");
     } else {
       const res = axios
-        .post("http://localhost:3000/uploadSlip", {
-          /* title: title,
-            dis: description, */
-          mobile: mobile,
+        .put(`http://localhost:3000/updateSlip/${updateForm._id}`, {
+          mobile: updateForm.mobile,
           classId: payment.classId,
           slip: p_image,
         })
@@ -143,37 +160,20 @@ function UpdatePurchase() {
       <h3>Update your slip</h3>
       <Form onSubmit={onclick}>
         <Form.Group>
-          {/* <Form.Control
-            name="title"
-            placeholder="Product Title"
-            required
-            style={{ marginBottom: "1rem" }}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          />
-
-          <Form.Control
-            name="dis"
-            placeholder="Product Discription"
-            required
-            style={{ marginBottom: "1rem" }}
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
-          />
-          */}
+          < a href={`${p_image}`}>Click here to view your current slip</a>
 
           <Form.Control
             name="mobile"
             type="number"
+            value={updateForm.mobile}
             placeholder="Enter mobile number"
             required
             style={{ marginBottom: "1rem" }}
             onChange={(e) => {
-              setMobile(e.target.value);
+              setUpdateForm({ ...updateForm, mobile: e.target.value });
             }}
           />
+
 
           <input
             type="file"

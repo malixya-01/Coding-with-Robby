@@ -70,13 +70,16 @@ const updatePayment = async (req, res) => {
     const PaymentId = req.params.id;
 
     //Get the data off the request body
-    const { slip } = req.body;
+    const {classId,slip,mobile} = req.body;
 
     //Find and update the record
-    await SlipPayment.findOneAndUpdate(
-      { _id: PaymentId, user: req.user._id },
+    await SlipPayment.findOneAndUpdate({ _id: PaymentId},
       {
+        classId,
         slip,
+        mobile,
+        user: "user1",
+        valid: false,
       }
     );
 
