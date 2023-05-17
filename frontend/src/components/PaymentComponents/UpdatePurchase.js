@@ -123,7 +123,7 @@ function UpdatePurchase() {
       const res = axios
         .put(`http://localhost:3000/updateSlip/${updateForm._id}`, {
           mobile: updateForm.mobile,
-          classId: payment.classId,
+          classId: updateForm.classId,
           slip: p_image,
         })
         .then((res) => {
